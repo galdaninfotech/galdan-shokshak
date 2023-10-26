@@ -17,6 +17,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_localizations:
+    sdk: flutter
   font_awesome_flutter: ^10.1.0
   form_inputs:
     path: packages/form_inputs
@@ -32,6 +34,7 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^9.0.0
+  flutter_gen: ^5.3.2
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.0
