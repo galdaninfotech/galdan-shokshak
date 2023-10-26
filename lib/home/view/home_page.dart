@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/home/home.dart';
 
+import '../../products/view/products_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -35,6 +37,14 @@ class HomePage extends StatelessWidget {
             Text(user.email ?? '', style: textTheme.titleLarge),
             const SizedBox(height: 4),
             Text(user.name ?? '', style: textTheme.headlineSmall),
+            SizedBox(height: 50,),
+            ElevatedButton(
+              onPressed: () { 
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ProductsPage())
+                );
+              }, 
+              child: Text("Go to Menu"),),
           ],
         ),
       ),
