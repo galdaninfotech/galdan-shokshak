@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/home/home.dart';
 
-import '../../products/view/products_page.dart';
+import '../../todos_overview/view/todos_overview_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () { 
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ProductsPage())
+                  MaterialPageRoute(builder: (context) => TodosOverviewPage())
                 );
               }, 
               child: Text("Go to Menu"),),

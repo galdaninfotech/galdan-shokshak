@@ -3,7 +3,9 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_firebase_login/app/app.dart';
+import 'package:todos_repository/todos_repository.dart';
 import 'firebase_options.dart';
+import 'package:local_storage_todos_api/local_storage_todos_api.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,5 +18,17 @@ Future<void> main() async {
   final authenticationRepository = AuthenticationRepository();
   await authenticationRepository.user.first;
 
-  runApp(App(authenticationRepository: authenticationRepository));
+  final todosApi = LocalStorageTodosApi(
+    plugin: await SharedPreferences.getInstance(),
+  );
+
+  final todosRepository = TodosRepository(todosApi: todosApi);
+
+  final Todo todo = Todo(title: 'title');
+  todosApi.saveTodo(todo);
+
+  runApp(App(
+    authenticationRepository: authenticationRepository,
+    todosRepository: todosRepository,
+  ));
 }

@@ -4,19 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/theme.dart';
+import 'package:todos_repository/todos_repository.dart';
 
 class App extends StatelessWidget {
   const App({
     required AuthenticationRepository authenticationRepository,
+    required TodosRepository this.todosRepository,
     super.key,
   }) : _authenticationRepository = authenticationRepository;
 
   final AuthenticationRepository _authenticationRepository;
+  final TodosRepository todosRepository;
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-      value: _authenticationRepository,
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<TodosRepository>(
+          create: (context) => todosRepository,)
+      ],
       child: BlocProvider(
         create: (_) => AppBloc(
           authenticationRepository: _authenticationRepository,
@@ -25,6 +31,18 @@ class App extends StatelessWidget {
       ),
     );
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return RepositoryProvider.value(
+  //     value: _authenticationRepository,
+  //     child: BlocProvider(
+  //       create: (_) => AppBloc(
+  //         authenticationRepository: _authenticationRepository,
+  //       ),
+  //       child: const AppView(),
+  //     ),
+  //   );
+  // }
 }
 
 class AppView extends StatelessWidget {

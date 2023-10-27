@@ -4,9 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/todos_overview/todos_overview.dart';
 import 'package:todos_repository/todos_repository.dart';
 
+import '../../app/bloc/app_bloc.dart';
+
 
 class TodosOverviewPage extends StatelessWidget {
-  const TodosOverviewPage({super.key});
+  TodosOverviewPage({super.key});
+
+  static Page<void> page() => MaterialPage<void>(child: TodosOverviewPage());
+  // final todosRepository = TodosRepository(todosApi: todosApi);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +29,10 @@ class TodosOverviewView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
       appBar: AppBar(
-        title: Text('l10n.todosOverviewAppBarTitle'),
+        title: Text(user.email ?? '',),
         actions: const [
           TodosOverviewFilterButton(),
           TodosOverviewOptionsButton(),
@@ -44,7 +49,7 @@ class TodosOverviewView extends StatelessWidget {
                   ..hideCurrentSnackBar()
                   ..showSnackBar(
                     SnackBar(
-                      content: Text('l10n.todosOverviewErrorSnackbarText'),
+                      content: Text('todosOverviewErrorSnackbarText'),
                     ),
                   );
               }
