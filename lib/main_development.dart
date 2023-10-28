@@ -7,6 +7,8 @@ import 'package:todos_repository/todos_repository.dart';
 import 'firebase_options.dart';
 import 'package:local_storage_todos_api/local_storage_todos_api.dart';
 
+import '../../shopping_repository.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = const AppBlocObserver();
@@ -30,5 +32,6 @@ Future<void> main() async {
   runApp(App(
     authenticationRepository: authenticationRepository,
     todosRepository: todosRepository,
+    shoppingRepository: ShoppingRepository()
   ));
 }

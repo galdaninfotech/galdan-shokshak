@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/home/home.dart';
 
-import '../../todos_overview/view/todos_overview_page.dart';
+import '../../cart/view/cart_page.dart';
+import '../../catalog/view/catalog_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,14 +38,23 @@ class HomePage extends StatelessWidget {
             Text(user.email ?? '', style: textTheme.titleLarge),
             const SizedBox(height: 4),
             Text(user.name ?? '', style: textTheme.headlineSmall),
-            SizedBox(height: 50,),
+            SizedBox(
+              height: 50,
+            ),
             ElevatedButton(
-              onPressed: () { 
+              onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => TodosOverviewPage())
-                );
-              }, 
-              child: Text("Go to Menu"),),
+                    MaterialPageRoute(builder: (context) => CatalogPage()));
+              },
+              child: Text("Go to Catalog"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => CartPage()));
+              },
+              child: Text("Go to Cart"),
+            ),
           ],
         ),
       ),

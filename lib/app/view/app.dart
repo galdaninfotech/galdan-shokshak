@@ -6,15 +6,21 @@ import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/theme.dart';
 import 'package:todos_repository/todos_repository.dart';
 
+import '../../cart/cart.dart';
+import '../../catalog/catalog.dart';
+import '../../shopping_repository.dart';
+
 class App extends StatelessWidget {
   const App({
     required AuthenticationRepository authenticationRepository,
     required TodosRepository this.todosRepository,
+    required ShoppingRepository this.shoppingRepository,
     super.key,
   }) : _authenticationRepository = authenticationRepository;
 
   final AuthenticationRepository _authenticationRepository;
   final TodosRepository todosRepository;
+  final ShoppingRepository shoppingRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +33,24 @@ class App extends StatelessWidget {
           create: (context) => todosRepository,
         ),
       ],
-      child: BlocProvider(
-        create: (_) => AppBloc(
-          authenticationRepository: _authenticationRepository,
-        ),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => AppBloc(
+              authenticationRepository: _authenticationRepository,
+            ),
+          ),
+          BlocProvider(
+            create: (_) => CartBloc(
+              shoppingRepository: shoppingRepository,
+            )..add(CartStarted()),
+          ),
+          BlocProvider(
+            create: (_) => CatalogBloc(
+              shoppingRepository: shoppingRepository,
+            )..add(CatalogStarted()),
+          ),
+        ],
         child: const AppView(),
       ),
     );
