@@ -6,6 +6,8 @@ import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/theme.dart';
 import 'package:todos_repository/todos_repository.dart';
 
+// For jsonDecode
+
 import '../../cart/cart.dart';
 import '../../catalog/catalog.dart';
 import '../../shopping_repository.dart';
@@ -55,18 +57,6 @@ class App extends StatelessWidget {
       ),
     );
   }
-  // @override
-  // Widget build(BuildContext context) {
-  //   return RepositoryProvider.value(
-  //     value: _authenticationRepository,
-  //     child: BlocProvider(
-  //       create: (_) => AppBloc(
-  //         authenticationRepository: _authenticationRepository,
-  //       ),
-  //       child: const AppView(),
-  //     ),
-  //   );
-  // }
 }
 
 class AppView extends StatelessWidget {
