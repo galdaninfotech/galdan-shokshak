@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/theme.dart';
 import 'package:todos_repository/todos_repository.dart';
-
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 // For jsonDecode
 
 import '../../cart/cart.dart';
@@ -65,11 +65,17 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme,
       home: FlowBuilder<AppStatus>(
         state: context.select((AppBloc bloc) => bloc.state.status),
         onGeneratePages: onGenerateAppViewPages,
       ),
+      // The Mandy red, light theme.
+      theme: FlexThemeData.light(scheme: FlexScheme.red),
+      // The Mandy red, dark theme.
+      darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+      // Use dark or light theme based on system setting.
+      themeMode: ThemeMode.system,
+      
     );
   }
 }

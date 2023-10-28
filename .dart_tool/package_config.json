@@ -134,6 +134,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "device_frame",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/device_frame-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "device_preview",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/device_preview-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "diff_match_patch",
       "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/diff_match_patch-0.4.1",
       "packageUri": "lib/",
@@ -200,6 +212,18 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "flex_color_scheme",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/flex_color_scheme-7.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flex_seed_scheme",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/flex_seed_scheme-1.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flow_builder",
       "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/flow_builder-0.0.9",
       "packageUri": "lib/",
@@ -264,6 +288,12 @@
       "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/formz-0.6.1",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "freezed_annotation",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/freezed_annotation-2.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "frontend_server_client",
@@ -782,7 +812,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-10-28T04:13:40.999437Z",
+  "generated": "2023-10-28T13:41:32.461674Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }
