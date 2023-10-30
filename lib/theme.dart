@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final theme = ThemeData(
+  useMaterial3: true,
+  colorSchemeSeed: Colors.green,
   primarySwatch: const MaterialColor(4288120051, {
     50: Color(0xffebe8fd),
     100: Color(0xffd8d1fa),

@@ -9,6 +9,8 @@ import 'package:local_storage_todos_api/local_storage_todos_api.dart';
 import 'package:device_preview/device_preview.dart';
 import '../../shopping_repository.dart';
 
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = const AppBlocObserver();

@@ -38,6 +38,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "awesome_bottom_bar",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/awesome_bottom_bar-1.2.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "bloc",
       "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/bloc-8.1.2",
       "packageUri": "lib/",
@@ -812,7 +818,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-10-28T13:41:32.461674Z",
+  "generated": "2023-10-28T16:16:35.014350Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }

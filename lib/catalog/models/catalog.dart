@@ -6,7 +6,8 @@ class Catalog extends Equatable {
 
   final List<String> itemNames;
 
-  Item getById(int id) => Item(id, itemNames[id % itemNames.length]);
+  // Item getById(int id) => Item(id, itemNames[id % itemNames.length]);
+  Item getById(int id) => Item(5, 'itemNames[id % itemNames.length]');
 
   Item getByPosition(int position) => getById(position);
 

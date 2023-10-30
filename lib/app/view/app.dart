@@ -3,10 +3,8 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
-import 'package:flutter_firebase_login/theme.dart';
 import 'package:todos_repository/todos_repository.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-// For jsonDecode
 
 import '../../cart/cart.dart';
 import '../../catalog/catalog.dart';
@@ -70,12 +68,12 @@ class AppView extends StatelessWidget {
         onGeneratePages: onGenerateAppViewPages,
       ),
       // The Mandy red, light theme.
-      theme: FlexThemeData.light(scheme: FlexScheme.red),
+      theme: FlexThemeData.light(scheme: FlexScheme.red, useMaterial3: true),
       // The Mandy red, dark theme.
-      darkTheme: FlexThemeData.dark(scheme: FlexScheme.mandyRed),
+      darkTheme: FlexThemeData.dark(scheme: FlexScheme.amber),
       // Use dark or light theme based on system setting.
       themeMode: ThemeMode.system,
-      
+      debugShowCheckedModeBanner: false,
     );
   }
 }

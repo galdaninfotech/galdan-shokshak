@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../app/bloc/app_bloc.dart';
+import '../../app/bottom_navigation_bar/bottom_navigation_bar.dart';
+import '../../app/navigation_drawer_bar/navigation_drawer_bar.dart';
 import '../../cart/cart.dart';
 import '../../catalog/catalog.dart';
 
@@ -10,9 +13,52 @@ class CatalogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // title: const Text('Home'),
+        // automaticallyImplyLeading: false,
+        actions: <Widget>[
+          IconButton(
+            key: const Key('homePage_logout_iconButton'),
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              context.read<AppBloc>().add(const AppLogoutRequested());
+            },
+          ),
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(
+                  Icons.search,
+                  size: 26.0,
+                ),
+              )),
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Badge(
+                  label: Text('5'),
+                  child: IconButton(
+                    icon: Icon(Icons.shopping_cart),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => CartPage()));
+                    },
+                  ),
+                ),
+              )),
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {},
+                child: Icon(Icons.more_vert),
+              )),
+        ],
+      ),
       body: CustomScrollView(
         slivers: [
-          const CatalogAppBar(),
+          // const CatalogAppBar(),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           BlocBuilder<CatalogBloc, CatalogState>(
             builder: (context, state) {
@@ -36,6 +82,8 @@ class CatalogPage extends StatelessWidget {
           ),
         ],
       ),
+      drawer: MyNavigationDrawer(),
+      bottomNavigationBar: MyBottomNavigationBar(),
     );
   }
 }
