@@ -3,24 +3,28 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
+import 'package:flutter_firebase_login/menu_items/menu_items.dart';
 import 'package:todos_repository/todos_repository.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 import '../../cart/cart.dart';
 import '../../catalog/catalog.dart';
 import '../../shopping_repository.dart';
+import '../../menu_items_repository.dart';
 
 class App extends StatelessWidget {
   const App({
     required AuthenticationRepository authenticationRepository,
     required TodosRepository this.todosRepository,
     required ShoppingRepository this.shoppingRepository,
+    required MenuItemsRepository this.menuItemsRepository,
     super.key,
   }) : _authenticationRepository = authenticationRepository;
 
   final AuthenticationRepository _authenticationRepository;
   final TodosRepository todosRepository;
   final ShoppingRepository shoppingRepository;
+  final MenuItemsRepository menuItemsRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +43,11 @@ class App extends StatelessWidget {
             create: (_) => AppBloc(
               authenticationRepository: _authenticationRepository,
             ),
+          ),
+          BlocProvider(
+            create: (_) => MenuItemsBloc(
+              menuItemsRepository: menuItemsRepository,
+            )..add(LoadMenuItems()),
           ),
           BlocProvider(
             create: (_) => CartBloc(

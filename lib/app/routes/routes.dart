@@ -3,13 +3,15 @@ import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/home/home.dart';
 import 'package:flutter_firebase_login/login/login.dart';
 
+import '../../menu_items/menu_items.dart';
+
 List<Page<dynamic>> onGenerateAppViewPages(
   AppStatus state,
   List<Page<dynamic>> pages,
 ) {
   switch (state) {
     case AppStatus.authenticated:
-      return [HomePage.page()];
+      return [MenuItemsPage.page()];
     case AppStatus.unauthenticated:
       return [LoginPage.page()];
   }

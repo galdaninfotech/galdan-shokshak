@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../app/bloc/app_bloc.dart';
-import '../../app/bottom_navigation_bar/bottom_navigation_bar.dart';
-import '../../app/navigation_drawer_bar/navigation_drawer_bar.dart';
+import '../../app/custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';
+import '../../app/custom_drawer_bar/custom_drawer.dart';
 import '../../cart/cart.dart';
 import '../../catalog/catalog.dart';
 
@@ -82,8 +82,8 @@ class CatalogPage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: MyNavigationDrawer(),
-      bottomNavigationBar: MyBottomNavigationBar(),
+      drawer: CustomDrawer(),
+      bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
 }
