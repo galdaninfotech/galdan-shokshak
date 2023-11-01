@@ -5,19 +5,17 @@ import 'package:flutter_firebase_login/app/bottom_navigation_bar/bottom_navigati
 import 'package:flutter_firebase_login/home/home.dart';
 
 import '../../app/navigation_drawer_bar/navigation_drawer_bar.dart';
+import '../../app/widgets/custom_appbar.dart';
 import '../../cart/view/cart_page.dart';
 import '../../catalog/view/catalog_page.dart';
 
-class HomePage extends StatefulWidget implements PreferredSizeWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   static Page<void> page() => const MaterialPage<void>(child: HomePage());
 
   @override
   State<HomePage> createState() => _HomePageState();
-
-  @override
-  Size get preferredSize => Size.fromHeight(50);
 }
 
 class _HomePageState extends State<HomePage> {
@@ -26,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     final textTheme = Theme.of(context).textTheme;
     final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(title: 'Home'),
       body: Align(
         alignment: const Alignment(0, -1 / 3),
         child: Column(
@@ -59,57 +57,6 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: MyNavigationDrawer(),
       bottomNavigationBar: MyBottomNavigationBar(),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      // title: const Text('Home'),
-      actions: <Widget>[
-        IconButton(
-          key: const Key('homePage_logout_iconButton'),
-          icon: const Icon(Icons.exit_to_app),
-          onPressed: () {
-            context.read<AppBloc>().add(const AppLogoutRequested());
-          },
-        ),
-        Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              onTap: () {},
-              child: Icon(
-                Icons.search,
-                size: 26.0,
-              ),
-            )),
-        Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              onTap: () {},
-              child: Badge(
-                label: Text('5'),
-                child: IconButton(
-                  icon: Icon(Icons.shopping_cart),
-                  onPressed: () {
-                    print("These are items in your cart");
-                  },
-                ),
-              ),
-            )),
-        Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-              onTap: () {},
-              child: Icon(Icons.more_vert),
-            )),
-      ],
     );
   }
 }

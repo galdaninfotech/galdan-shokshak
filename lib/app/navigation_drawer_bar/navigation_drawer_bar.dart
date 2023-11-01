@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../cart/view/cart_page.dart';
+import '../../home/view/home_page.dart';
 import '../../home/widgets/avatar.dart';
 import '../bloc/app_bloc.dart';
 
@@ -36,7 +38,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),
@@ -46,7 +48,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),
@@ -56,7 +58,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),
@@ -66,7 +68,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => CartPage()),
               );
             },
           ),
@@ -76,7 +78,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),
@@ -86,7 +88,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),
@@ -96,7 +98,7 @@ class MyNavigationDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Placeholder()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../catalog/view/catalog_page.dart';
 import '../../cart/view/cart_page.dart';
+import '../../home/view/home_page.dart';
 
 const List<TabItem> items = [
   TabItem(
@@ -54,7 +55,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           paddingVertical: 24,
           onTap: (int index) => setState(() {
             visit = index;
-            if(index == 1) {
+            if(index == 0) {
+              Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => HomePage()));
+            } else if(index == 1) {
               Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => CatalogPage()));
             } else if(index == 3) {
