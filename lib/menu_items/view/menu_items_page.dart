@@ -40,7 +40,15 @@ class MenuItemsPage extends StatelessWidget {
               itemCount: menuItems.length,
               itemBuilder: (BuildContext context, int index) {
                 return Center(
-                  child: Text(menuItems[index].name),
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Text(menuItems[index].name),
+                        Text(menuItems[index].price.toString()),
+                        TextButton(onPressed: () {}, child: Text('Add To Cart'))
+                      ],
+                    ),
+                  ),
                 );
               },
             );

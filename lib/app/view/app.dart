@@ -7,23 +7,18 @@ import 'package:flutter_firebase_login/menu_items/menu_items.dart';
 import 'package:todos_repository/todos_repository.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
-import '../../cart/cart.dart';
-import '../../catalog/catalog.dart';
-import '../../shopping_repository.dart';
 import '../../menu_items_repository.dart';
 
 class App extends StatelessWidget {
   const App({
     required AuthenticationRepository authenticationRepository,
     required TodosRepository this.todosRepository,
-    required ShoppingRepository this.shoppingRepository,
     required MenuItemsRepository this.menuItemsRepository,
     super.key,
   }) : _authenticationRepository = authenticationRepository;
 
   final AuthenticationRepository _authenticationRepository;
   final TodosRepository todosRepository;
-  final ShoppingRepository shoppingRepository;
   final MenuItemsRepository menuItemsRepository;
 
   @override
@@ -48,16 +43,6 @@ class App extends StatelessWidget {
             create: (_) => MenuItemsBloc(
               menuItemsRepository: menuItemsRepository,
             )..add(LoadMenuItems()),
-          ),
-          BlocProvider(
-            create: (_) => CartBloc(
-              shoppingRepository: shoppingRepository,
-            )..add(CartStarted()),
-          ),
-          BlocProvider(
-            create: (_) => CatalogBloc(
-              shoppingRepository: shoppingRepository,
-            )..add(CatalogStarted()),
           ),
         ],
         child: const AppView(),

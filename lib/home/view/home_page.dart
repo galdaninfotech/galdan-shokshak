@@ -6,8 +6,6 @@ import 'package:flutter_firebase_login/home/home.dart';
 
 import '../../app/custom_drawer_bar/custom_drawer.dart';
 import '../../app/widgets/custom_appbar.dart';
-import '../../cart/view/cart_page.dart';
-import '../../catalog/view/catalog_page.dart';
 
 import '../../menu_items/menu_items.dart';
 
@@ -50,14 +48,14 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => CatalogPage()));
+                    MaterialPageRoute(builder: (context) => HomePage()));
               },
               child: Text("Go to Catalog"),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => CartPage()));
+                    .push(MaterialPageRoute(builder: (context) => HomePage()));
               },
               child: Text("Go to Cart"),
             ),

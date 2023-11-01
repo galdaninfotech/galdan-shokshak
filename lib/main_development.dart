@@ -7,7 +7,6 @@ import 'package:todos_repository/todos_repository.dart';
 import 'firebase_options.dart';
 import 'package:local_storage_todos_api/local_storage_todos_api.dart';
 import 'package:device_preview/device_preview.dart';
-import '../../shopping_repository.dart';
 import 'menu_items_repository.dart';
 
 
@@ -38,7 +37,6 @@ Future<void> main() async {
       builder: (context) => App(
         authenticationRepository: authenticationRepository,
         todosRepository: todosRepository,
-        shoppingRepository: ShoppingRepository(),
         menuItemsRepository: MenuItemsRepository(),
       ),
     ),

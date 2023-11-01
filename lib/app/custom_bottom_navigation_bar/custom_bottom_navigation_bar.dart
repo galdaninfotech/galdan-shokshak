@@ -1,8 +1,6 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../../catalog/view/catalog_page.dart';
-import '../../cart/view/cart_page.dart';
 import '../../home/view/home_page.dart';
 import '../../menu_items/view/menu_items_page.dart';
 
@@ -64,7 +62,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     MaterialPageRoute(builder: (context) => MenuItemsPage()));
             } else if(index == 3) {
               Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => CartPage()));
+                    .push(MaterialPageRoute(builder: (context) => HomePage()));
             }
           }),
         ),

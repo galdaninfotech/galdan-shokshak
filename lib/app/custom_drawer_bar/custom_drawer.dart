@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cart/view/cart_page.dart';
 import '../../home/view/home_page.dart';
 import '../../home/widgets/avatar.dart';
 import '../../menu_items/view/menu_items_page.dart';
@@ -69,7 +68,7 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CartPage()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),
