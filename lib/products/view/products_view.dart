@@ -16,18 +16,34 @@ class ProductsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ProductsBloc>();
+    // final bloc = context.read<ProductsBloc>();
+    // print(bloc.state);
     return Container(
       child: Scaffold(
         appBar: CustomAppBar(title: 'Products'),
         drawer: CustomDrawer(),
         bottomNavigationBar: CustomBottomNavigationBar(),
         body: BlocBuilder<ProductsBloc, ProductsState>(
-          builder: (context, state) {
-            if (bloc.state is ProductsLoading) {
-              return Text('ProductsLoading');
+          builder: (BuildContext context, state) {
+            print('sssssssssssssssssssssssssssssssssss');
+            print(state);
+            if (state is ProductsLoading) {
+              return Center(child: Column(
+                children: [
+                  CircularProgressIndicator(),
+                  ElevatedButton(
+                    onPressed: (){
+                      context.read<ProductsBloc>().add(LoadProducts());
+                    }, 
+                    child: Text('Load Products'),
+                  )
+                ],
+              ));
+            } else if(state is ProductsLoaded) {
+              print(state);
+              return Center(child: Text('state.products[0].name'));
             } else {
-              return Text('bbbbbbbbbbb');
+              return Center(child: Text('Error Loading Products!'));
             }
           },
         ),
