@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_login/app/app.dart';
 import 'package:flutter_firebase_login/app/custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 import 'package:flutter_firebase_login/home/home.dart';
+import 'package:flutter_firebase_login/products/products.dart';
 
 import '../../app/custom_drawer_bar/custom_drawer.dart';
 import '../../app/widgets/custom_appbar.dart';
+import '../../products/view/products_page.dart';
 
-import '../../menu_items/menu_items.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,9 +42,9 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => MenuItemsPage()));
+                    MaterialPageRoute(builder: (context) => ProductsPage()));
               },
-              child: Text("Go to Menu Items"),
+              child: Text("Go to Products"),
             ),
             ElevatedButton(
               onPressed: () {

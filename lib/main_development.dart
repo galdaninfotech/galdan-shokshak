@@ -7,7 +7,8 @@ import 'package:todos_repository/todos_repository.dart';
 import 'firebase_options.dart';
 import 'package:local_storage_todos_api/local_storage_todos_api.dart';
 import 'package:device_preview/device_preview.dart';
-import 'menu_items_repository.dart';
+
+import 'products/product_repository.dart';
 
 
 
@@ -26,7 +27,7 @@ Future<void> main() async {
     plugin: await SharedPreferences.getInstance(),
   );
 
-  final todosRepository = TodosRepository(todosApi: todosApi);
+  final productRepository = ProductRepository();
 
   final Todo todo = Todo(title: 'title');
   todosApi.saveTodo(todo);
@@ -36,8 +37,7 @@ Future<void> main() async {
       enabled: true,
       builder: (context) => App(
         authenticationRepository: authenticationRepository,
-        todosRepository: todosRepository,
-        menuItemsRepository: MenuItemsRepository(),
+        productRepository: productRepository,
       ),
     ),
   );

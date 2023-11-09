@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../home/view/home_page.dart';
 import '../../home/widgets/avatar.dart';
-import '../../menu_items/view/menu_items_page.dart';
 import '../bloc/app_bloc.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -48,7 +47,7 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MenuItemsPage()),
+                MaterialPageRoute(builder: (context) => HomePage()),
               );
             },
           ),

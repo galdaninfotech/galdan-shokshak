@@ -129,19 +129,19 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///home/tsewang/Documents/flutter/packages/flutter",
+      "rootUri": "file:///home/tsewang/projects/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///home/tsewang/Documents/flutter/packages/flutter_test",
+      "rootUri": "file:///home/tsewang/projects/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///home/tsewang/Documents/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///home/tsewang/projects/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -183,7 +183,7 @@
     },
     {
       "name": "google_sign_in_web",
-      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/google_sign_in_web-0.12.0+5",
+      "rootUri": "file:///home/tsewang/.pub-cache/hosted/pub.dev/google_sign_in_web-0.12.1",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },
@@ -267,7 +267,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///home/tsewang/Documents/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///home/tsewang/projects/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -344,7 +344,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-10-25T07:37:39.032580Z",
+  "generated": "2023-11-08T10:56:46.725943Z",
   "generator": "pub",
-  "generatorVersion": "3.1.2"
+  "generatorVersion": "3.1.5"
 }
