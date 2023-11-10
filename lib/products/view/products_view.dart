@@ -41,7 +41,7 @@ class ProductsView extends StatelessWidget {
               ));
             } else if(state is ProductsLoaded) {
               print(state);
-              return Center(child: Text('state.products[0].name'));
+              return Center(child: Text(state.products[0].name));
             } else {
               return Center(child: Text('Error Loading Products!'));
             }

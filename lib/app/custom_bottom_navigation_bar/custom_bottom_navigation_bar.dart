@@ -1,6 +1,7 @@
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../../cart/view/cart_page.dart';
 import '../../home/view/home_page.dart';
 
 const List<TabItem> items = [
@@ -61,7 +62,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     MaterialPageRoute(builder: (context) => HomePage()));
             } else if(index == 3) {
               Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => HomePage()));
+                    .push(MaterialPageRoute(builder: (context) => CartPage()));
             }
           }),
         ),
