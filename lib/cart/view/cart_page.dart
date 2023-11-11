@@ -33,30 +33,54 @@ class CartList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final itemNameStyle = Theme.of(context).textTheme.titleLarge;
+    // final itemNameStyle = Theme.of(context).textTheme.titleLarge;
 
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return switch (state) {
           CartLoading() => const CircularProgressIndicator(),
-          CartError() => const Text('Something went wrong!'),
+          CartError() => const Text('Something went wrong!!'),
           CartLoaded() => ListView.separated(
               itemCount: state.cart.products.length,
               separatorBuilder: (_, __) => const SizedBox(height: 4),
               itemBuilder: (context, index) {
-                final item = state.cart.products[index];
-                return Material(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  clipBehavior: Clip.hardEdge,
-                  child: ListTile(
-                    leading: const Icon(Icons.done),
-                    title: Text(item.name, style: itemNameStyle),
-                    onLongPress: () {
-                      // context.read<CartBloc>().add(CartItemRemoved(item));
-                    },
-                  ),
+                final product = state.cart.products[index];
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      state.cart.products[index].name,
+                    ),
+                    Text(
+                      state.cart.products[index].minPrice,
+                    ),
+                    BlocBuilder<CartBloc, CartState>(
+                      builder: (context, cartState) {
+                        return Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                final cartBloc = context.read<CartBloc>();
+                                cartBloc.add(
+                                  RemoveProductFromCart(product)
+                                );
+                              },
+                              icon: Icon(Icons.remove_circle_outline),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                final cartBloc = context.read<CartBloc>();
+                                cartBloc.add(
+                                  AddProductToCart(product)
+                                );
+                              },
+                              icon: Icon(Icons.add_circle_outline),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ],
                 );
               },
             ),

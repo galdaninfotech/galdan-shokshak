@@ -18,7 +18,6 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     Emitter<ProductsState> emit,
   ) async {
     emit(ProductsLoading());
-    // print(state.products.length);
     try {
       final List<Product> products = await productRepository.getProducts();
       emit(ProductsLoaded(products));
@@ -28,3 +27,4 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
   }
   
 }
+
