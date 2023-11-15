@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../cart/cart.dart';
 import '../../products/products.dart';
 // import '../../products/models/product_model.dart';
-import '../../shopping_repository.dart';
+import '../shopping_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'cart_event.dart';

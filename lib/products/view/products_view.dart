@@ -17,7 +17,7 @@ class ProductsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final productsBloc = context.read<ProductsBloc>();
+    final productsBloc = context.read<ProductsBloc>();
     return Container(
       child: Scaffold(
         appBar: CustomAppBar(title: 'Products'),
@@ -33,46 +33,56 @@ class ProductsView extends StatelessWidget {
                 ],
               ));
             } else if (state is ProductsLoaded) {
-              return Center(
-                child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: state.products.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              return Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Center(
+                  child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: productsBloc.state.products.length,
+                    itemBuilder: (context, index) {
+                      
+                      return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        productsBloc.state.products[index].name,
+                      ),
+                      Text(
+                        productsBloc.state.products[index].minPrice,
+                      ),
+                      BlocBuilder<CartBloc, CartState>(
+                        builder: (context, cartState) {
+                          return Row(
                             children: [
-                              Text(
-                                state.products[index].name,
-                              ),
-                              Text(
-                                state.products[index].minPrice,
-                              ),
-                              BlocBuilder<CartBloc, CartState>(
-                                builder: (context, cartState) {
-                                  return IconButton(
-                                    onPressed: () {
-                                      final cartBloc = context.read<CartBloc>();
-                                      cartBloc.add(
-                                        AddProductToCart(state.products[index])
-                                      );
-                                    },
-                                    icon:
-                                        Icon(Icons.add_shopping_cart_outlined),
+                              IconButton(
+                                onPressed: () {
+                                  final cartBloc = context.read<CartBloc>();
+                                  final product = productsBloc.state.products[index];
+                                  cartBloc.add(
+                                    RemoveProductFromCart(product)
                                   );
                                 },
+                                icon: Icon(Icons.remove_circle_outline),
+                              ),
+                              IconButton(
+                                onPressed: () {
+                                  final cartBloc = context.read<CartBloc>();
+                                  final product = productsBloc.state.products[index];
+                                  cartBloc.add(
+                                    AddProductToCart(product)
+                                  );
+                                },
+                                icon: Icon(Icons.add_circle_outline),
                               ),
                             ],
-                          ),
-                        ],
+                          );
+                        },
                       ),
-                    );
-                  },
+                    ],
+                  );
+                    },
+                  ),
                 ),
               );
             } else {

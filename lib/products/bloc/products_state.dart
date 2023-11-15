@@ -5,6 +5,8 @@ sealed class ProductsState extends Equatable {
 
   @override
   List<Object?> get props => [];
+
+  get products => null;
 }
 
 final class ProductsLoading extends ProductsState {}

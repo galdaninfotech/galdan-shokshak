@@ -7,7 +7,7 @@ import '../../cart/cart.dart';
 import '../../products/product_repository.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 
-import '../../shopping_repository.dart';
+import '../../cart/shopping_repository.dart';
 
 
 class App extends StatelessWidget {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_firebase_login/app/custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';
+import 'package:flutter_firebase_login/app/custom_drawer_bar/custom_drawer.dart';
+import 'package:flutter_firebase_login/app/widgets/custom_appbar.dart';
 import '../../cart/cart.dart';
 
 class CartPage extends StatelessWidget {
@@ -8,21 +11,20 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cart')),
-      body: const ColoredBox(
-        color: Colors.yellow,
-        child: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(32),
-                child: CartList(),
-              ),
+      appBar: CustomAppBar(title: 'Cart'),
+      drawer: CustomDrawer(),
+      bottomNavigationBar: CustomBottomNavigationBar(),
+      body: const Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(32),
+              child: CartList(),
             ),
-            Divider(height: 4, color: Colors.black),
-            // CartTotal(),
-          ],
-        ),
+          ),
+          Divider(height: 4, color: Colors.black),
+          // CartTotal(),
+        ],
       ),
     );
   }
